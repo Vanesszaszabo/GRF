@@ -21,7 +21,7 @@ void drawScene(void)
 {
     glClear(GL_COLOR_BUFFER_BIT);
 
-    // GˆrbÈk rajzol·sa
+    // G√∂rb√©k rajzol√°sa
     if (points.size() >= 4) {
         glColor3f(0.0, 0.0, 0.0);
         glBegin(GL_LINE_STRIP);
@@ -31,7 +31,7 @@ void drawScene(void)
         Point p2 = points[2];
         Point p3 = points[3];
 
-        // Az elsı gˆrbe megrajzol·sa
+        // Az els√µ g√∂rbe megrajzol√°sa
         for (float t = 0; t <= 1; t += 0.01) {
             float x = pow(1 - t, 3) * p0.x +
                 3 * t * pow(1 - t, 2) * p1.x +
@@ -72,7 +72,7 @@ void drawScene(void)
     }
 
     if (showPoints) {
-        // Kontrollpontok rajzol·sa
+        // Kontrollpontok rajzol√°sa
         glColor3f(1.0, 0.0, 0.0);
         for (const auto& point : points) {
             if (point.visible) {
@@ -87,27 +87,27 @@ void drawScene(void)
         }
     }
     else {
-        // Ir·nyvektorok rajzol·sa
+        // Ir√°nyvektorok rajzol√°sa
         if (points.size() >= 4) {
             for (size_t i = 0; i < points.size() - 3; i += 3) {
-                // Kezdıpont -> elsı ir·nyvektor
-                glColor3f(0.0, 1.0, 0.0); // Zˆld szÌn az elsı ir·nyvektornak
+                // Kezd√µpont -> els√µ ir√°nyvektor
+                glColor3f(0.0, 1.0, 0.0); // Z√∂ld sz√≠n az els√µ ir√°nyvektornak
                 glBegin(GL_LINES);
                 glVertex2f(points[i].x, points[i].y);
                 glVertex2f(points[i + 1].x, points[i + 1].y);
                 glEnd();
 
-                // VÈgpont -> m·sodik ir·nyvektor
-                glColor3f(0.0, 0.0, 1.0); // KÈk szÌn a m·sodik ir·nyvektornak
+                // V√©gpont -> m√°sodik ir√°nyvektor
+                glColor3f(0.0, 0.0, 1.0); // K√©k sz√≠n a m√°sodik ir√°nyvektornak
                 glBegin(GL_LINES);
                 glVertex2f(points[i + 3].x, points[i + 3].y);
                 glVertex2f(points[i + 2].x, points[i + 2].y);
                 glEnd();
 
-                // Kezdı- Ès vÈgpontok kis kˆrˆkkel jelˆlve
-                glColor3f(1.0, 0.0, 0.0); // Piros szÌn a pontoknak
+                // Kezd√µ- √©s v√©gpontok kis k√∂r√∂kkel jel√∂lve
+                glColor3f(1.0, 0.0, 0.0); // Piros sz√≠n a pontoknak
 
-                // Kezdıpont
+                // Kezd√µpont
                 glBegin(GL_POLYGON);
                 for (int j = 0; j < 360; j++) {
                     float angle = j * M_PI / 180;
@@ -116,7 +116,7 @@ void drawScene(void)
                 }
                 glEnd();
 
-                // VÈgpont
+                // V√©gpont
                 glBegin(GL_POLYGON);
                 for (int j = 0; j < 360; j++) {
                     float angle = j * M_PI / 180;
@@ -159,22 +159,22 @@ void keyInput(unsigned char key, int x, int y)
         break;
     case 'c':
         if (points.size() >= 4) {
-            // Az utolsÛ pont Ès az elsı pont kˆzˆtti ir·nyÌtÛpontok kisz·mÌt·sa
+            // Az utols√≥ pont √©s az els√µ pont k√∂z√∂tti ir√°ny√≠t√≥pontok kisz√°m√≠t√°sa
             float lastX = points.back().x;
             float lastY = points.back().y;
             float firstX = points[0].x;
             float firstY = points[0].y;
 
-            // KÈt ir·nyÌtÛpont az utolsÛ Ès elsı pont kˆzˆtt
+            // K√©t ir√°ny√≠t√≥pont az utols√≥ √©s els√µ pont k√∂z√∂tt
             float control1X = lastX + (firstX - lastX) * 0.33f;
             float control1Y = lastY + (firstY - lastY) * 0.33f;
             float control2X = lastX + (firstX - lastX) * 0.66f;
             float control2Y = lastY + (firstY - lastY) * 0.66f;
 
-            // Ir·nyÌtÛpontok hozz·ad·sa
+            // Ir√°ny√≠t√≥pontok hozz√°ad√°sa
             points.emplace_back(control1X, control1Y);
             points.emplace_back(control2X, control2Y);
-            // Az elsı pont hozz·ad·sa z·rÛpontkÈnt
+            // Az els√µ pont hozz√°ad√°sa z√°r√≥pontk√©nt
             points.emplace_back(firstX, firstY);
 
             glutPostRedisplay();

@@ -24,10 +24,10 @@ static int animationPeriod = 50; // Time interval between frames.
 static float boxAngle = 0.0; // Angle of rotation.
 
 static float cameraDistance = 15.0;
-static double angleXZ = 0.0; // X Ès Z tengely menti forgat·s szˆge
+static double angleXZ = 0.0; // X √©s Z tengely menti forgat√°s sz√∂ge
 static double m = 0.0; // fel - le nyilak
 
-GLfloat  lookAtX = 0.0f, lookAtY = 0.0f, lookAtZ = -cameraDistance;  // Hova nÈz¸nk
+GLfloat  lookAtX = 0.0f, lookAtY = 0.0f, lookAtZ = -cameraDistance;  // Hova n√©z√ºnk
 
 
 // Drawing routine.
@@ -42,7 +42,7 @@ void drawScene(void)
 	double eyeZ = lookAtZ + cameraDistance * cos(angleXZ * M_PI / 180.0);
 	gluLookAt(eyeX, m, eyeZ, lookAtX, lookAtY, lookAtZ, 0.0, 1.0, 0.0);
 
-	/* Milyen alakzatok vannak GENNY”””””””””””” /solid/wire
+	/* Milyen alakzatok vannak GENNY√ì√ì√ì√ì√ì√ì√ì√ì√ì√ì√ì√ì /solid/wire
 	Cube: glutWireCube
 	Sphere: glutWireSphere
 	Torus: glutWireTorus
@@ -53,11 +53,11 @@ void drawScene(void)
 	Teapot: glutWireTeapot
 	*/
 
-	// Ez a KÈk doboz, elıszˆr ezt hozzuk lÈtre
-	///////////////////////////////////////////// KÈk doboz /////////////////////////////////////////////
+	// Ez a K√©k doboz, el√µsz√∂r ezt hozzuk l√©tre
+	///////////////////////////////////////////// K√©k doboz /////////////////////////////////////////////
 	
 	glPushMatrix();
-	glTranslatef(0.0, 0.0, -cameraDistance); // Standard eltol·s Frustum miatt
+	glTranslatef(0.0, 0.0, -cameraDistance); // Standard eltol√°s Frustum miatt
 	glRotatef(30.0, 0.0, 1.0, 0.0);
 	glColor3f(0.0, 0.0, 1.0);
 	if (isWireFrame == 0) {
@@ -109,12 +109,12 @@ void drawScene(void)
 	}
 	glPopMatrix();
 
-	///////////////////////////////////////////// KÈk doboz /////////////////////////////////////////////
+	///////////////////////////////////////////// K√©k doboz /////////////////////////////////////////////
 
 	///////////////////////////////////////////// Piros doboz /////////////////////////////////////////////
 	
 	glPushMatrix();
-	glTranslatef(0.0, 0.0, -cameraDistance);	// Standard eltol·s Frustum miatt
+	glTranslatef(0.0, 0.0, -cameraDistance);	// Standard eltol√°s Frustum miatt
 	glTranslatef(scaleBox / 2, scaleBox, scaleBox * -1);
 	glRotatef(boxAngle + 60.0, 0.0, 1.0, 0.0);
 	glColor3f(1.0, 0.0, 0.0);

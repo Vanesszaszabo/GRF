@@ -1,0 +1,53 @@
+Számítógépes grafika áttekintés
+1. Bresenham-féle szakaszrajzoló algoritmus
+A Bresenham-algoritmus egy hatékony eljárás, amely egész számú koordinátákkal 
+dolgozik a vonalak kirajzolásához. Egy döntési paramétert használ, amely minden lépésben meghatározza,
+hogy a következő pont az aktuális pixel mellett felfelé vagy lefelé helyezkedjen el.
+
+2. Sutherland-Hodgman-féle poligonvágó algoritmus
+Ez az algoritmus poligonok vágására szolgál egy adott ablak (vágási régió) szerint.
+Ha egy poligon kívülről befelé halad, akkor az ablak oldalával való metszéspont az eredményponthalmazba kerül.
+A poligon azon pontjai maradnak meg, amelyek az ablakon belül helyezkednek el.
+
+3. Cohen-Sutherland-féle szakaszvágó algoritmus
+Ez az algoritmus egy szakasz vágását végzi egy meghatározott ablak szerint.
+Ha a szakasz két végpontja az ablakon belül van (kódjuk csupa nulla), a szakasz teljes egészében kirajzolható.
+Ha a két kódnak van egy bitje, amely mindkettőben egyes, akkor a szakasz teljesen eldobható.
+Ha az egyik végpont csupa egyes, akkor az a pont biztosan kívül esik, így a szakasz eldobható.
+
+4. Bézier-görbék
+A Bézier-görbék kontrollpontokkal definiálhatók, amelyeket matematikai köztes interpolációs pontok alakítanak ki.
+Ha két Bézier-görbe metszi egymást, akkor a kontrollpontjaik konvex burkai is metszeni fogják egymást.
+A kontrollpontok elhelyezésétől függően a görbe a konvex burkon kívül is haladhat.
+A Bézier-görbe csak a végpontokat interpolálja, a közbülső pontokat nem.
+
+5. Transzformációs mátrixok
+A 3D-s grafikában egy objektum modellezési, nézeti és leképezési transzformációkon megy keresztül:
+M (modelltranszformáció): Az objektum helyi koordinátarendszerből világkoordinátákra történő transzformációja.
+N (nézeti transzformáció): Az objektumot kameranézetbe helyezi.
+L (leképezési transzformáció): Az objektumot vetítési térbe transzformálja.
+A helyes mátrixszorzási sorrend: L × N × M
+
+6. Görbemegadási módok
+A görbéket különböző módszerekkel lehet meghatározni:
+Implicit mód (pl. f(x, y) = 0): nem mindig hatékony.
+Paraméteres mód (pl. x(t), y(t)): gyakran hatékonyabb rajzolás szempontjából.
+Mindkét módszer használható, attól függően, milyen célra van szükség.
+
+7. Nézeti transzformációk
+A nézeti transzformációk kameraelhelyezést és orientációt határoznak meg. 
+Minden nézeti transzformáció felírható modelltranszformációkkal.
+
+8. Transzformációs mátrixok tulajdonságai
+Skálázási mátrixok (S_1, S_2) felcserélhetők.
+Eltolási mátrixok (T_1, T_2) nem felcserélhetők, mert az eltolás iránya számít.
+Skálázás és eltolás sorrendje számít.
+Forgatás és skálázás sorrendje befolyásolja az eredményt.
+
+9. Kamera-koordináta rendszer
+A kamera orientációját meghatározó vektorok:
+
+"Up" vektor: Párhuzamos a kamera y tengelyével.
+Nézeti irány: Nem feltétlenül párhuzamos a kamera x tengelyével.
+"Up" vektor merészes a kamera x tengelyére, de nem feltétlenül a z tengelyre.
+Ez az áttekintés segíthet megérteni a ZH anyagát és a kérdések hátterét!

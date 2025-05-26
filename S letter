@@ -1,0 +1,100 @@
+///////////////////////////////////
+// s.cpp
+//
+// OpenGL program to draw the letter G.
+//
+// Átalakította: ChatGPT.
+///////////////////////////////////
+#define _USE_MATH_DEFINES
+
+#include <cmath>
+#include <GL/glew.h>
+#include <GL/freeglut.h> 
+
+static float N = 100.0;
+static float X = 400.0;
+static float Y = 400.0;
+
+// Drawing routine.
+void drawScene(void)
+{
+	float angle;
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0, 0.0, 0.0);
+
+	const int N = 50;
+	const float innerRadius = 30.0f;
+	const float outerRadius = 40.0f;
+
+	// Felső félkör (fentről balra)
+	glPushMatrix();
+	glTranslatef(80.0,0.0,0.0);
+	glBegin(GL_TRIANGLE_STRIP);
+	for (int i = 0; i <= N; i++) {
+		float angle = M_PI - (3 * M_PI / 2 * i / N); // 90°–270°
+		float xInner = 40 + cos(angle) * innerRadius;
+		float xOuter = 40 + cos(angle) * outerRadius;
+		// Tükrözés
+		glVertex3f(-xInner, 100 + sin(angle) * innerRadius, 0.0);
+		glVertex3f(-xOuter, 100 + sin(angle) * outerRadius, 0.0);
+	}
+	glEnd();
+	glPopMatrix();
+
+
+	// Alsó félkör (lentről jobbra
+	glBegin(GL_TRIANGLE_STRIP);
+	for (int i = 0; i <= N; i++) {
+		float angle = M_PI + (3 * M_PI/2 * i / N); // 270°–90°
+		glVertex3f(40 + cos(angle) * innerRadius, 30 + sin(angle) * innerRadius, 0.0f);
+		glVertex3f(40 + cos(angle) * outerRadius, 30 + sin(angle) * outerRadius, 0.0f);
+	}
+	glEnd();
+
+	glFlush();
+}
+
+// Initialization routine.
+void setup(void)
+{
+	glClearColor(1.0, 1.0, 1.0, 0.0); // fehér háttér
+}
+
+// OpenGL window reshape routine.
+void resize(int w, int h)
+{
+	glViewport(0, 0, w, h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(-100, 300, -100, 300, -1.0, 1.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+
+// Keyboard input processing routine.
+void keyInput(unsigned char key, int x, int y)
+{
+	if (key == 27) exit(0);
+}
+
+// Main routine.
+int main(int argc, char** argv)
+{
+	glutInit(&argc, argv);
+	glutInitContextVersion(4, 3);
+	glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
+
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
+	glutInitWindowSize(X, Y);
+	glutInitWindowPosition(100, 100);
+	glutCreateWindow("S betű");
+	glutDisplayFunc(drawScene);
+	glutReshapeFunc(resize);
+	glutKeyboardFunc(keyInput);
+
+	glewExperimental = GL_TRUE;
+	glewInit();
+
+	setup();
+	glutMainLoop();
+}

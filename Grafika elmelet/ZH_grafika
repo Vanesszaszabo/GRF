@@ -1,0 +1,70 @@
+1. A Bresenham-féle szakaszrajzoló algoritmus esetében a következő döntési paraméter meghatározásához az alábbiak közül mire van szükség?
+Helyes válasz:
+✅ B) Az aktuális döntési paraméter értéke 
+(Bresenham algoritmusa az előző döntési paraméter alapján határozza meg a következő lépést.)
+
+2. A Sutherland-Hodgman-féle poliogónvágó algoritmus ültetési esetén amennyiben egy kívülről befelé haladó él hatását nézzük, 
+az alábbiak közül melyik kerül az eredményponthalmaz meghatározó csúcshalmazába?
+Helyes válasz:
+✅ C) A téglalap oldalával való metszéspont 
+(Az algoritmus azokat a pontokat tartja meg, amelyek a vágási régióban vannak, és kiszámítja a metszéspontokat.)
+
+3. A Cohen-Sutherland-féle szakaszvágó algoritmus esetében igaz(ak) a következő(k):
+Helyes válaszok:
+✅ A) Ha a szakasz két végpontjához rendelt kód csupa nulla, a szakasz kirajzolható 
+✅ B) Ha a két kódnak van olyan bitje, hogy azonos helyiértéken egyes van, a szakasz teljes egészében eldobható
+✅ C) Ha a szakasz egyik végpontjához rendelt kód csupa egyes, a szakasz eldobható
+(D) opció nem igaz, mert a kódban lévő két egyes nem garantálja, hogy a szakasz vízszintes vagy függőleges, 
+csak azt jelzi, hogy kívül esik a vágási régión.)
+
+4. A Bézier-görbe esetében igaz(ak) a következők:
+Helyes válaszok:
+A) Ha két Bézier-görbe kontrollpontjainak konvex burka metszi egymást, a két görbe is metszi egymást. (Hamis)
+A konvex burkok metszése nem garantálja a görbék metszését, mivel a görbék a kontrollpontok burkán kívül is haladhatnak.
+✅B) Ha két Bézier-görbe metszi egymást, akkor kontrollpontjaiknak konvex burkai is metszi egymást. (Igaz)
+Ha a görbék metszenek, akkor az őket tartalmazó konvex burkok is biztosan metszik egymást.
+✅C) A kontrollpontok megfelelő elhelyezésével elérhető, hogy a Bézier-görbe a kontrollpontok konvex burkán kívül helyezkedjen el. (Igaz)
+A Bézier-görbe nem feltétlenül marad a kontrollpontok konvex burkán belül, hiszen a görbék módosíthatók a kontrollpontok elrendezésével.
+D) A Bézier-görbe a végpontjait approximálja, a köztes pontokat interpolálja. (Hamis)
+A Bézier-görbék csak a végpontokat interpolálják, a többi kontrollpontot nem érintik, hanem csak befolyásolják a görbe alakját.
+
+5. Legyen M a modelltranszformáció mátrixa, N a nézeti transzformáció, L pedig a leképezési mátrix. 
+Melyik mátrix adja a megfelelő eredményt, ha az egyes transzformációk balról történő mátrixszorzást feltételeznek?
+✅ A helyes válasz a L × N × M (C).
+Mivel a transzformációkat fordított sorrendben kell alkalmazni, az objektum koordinátáira először a modelltranszformáció (M), 
+majd a nézeti transzformáció (N), végül a leképezési transzformáció (L) hat.
+
+6. Mely görbemeadási mód alkalmas egy görbe hatékony megrajzolására?
+A) Implicit (Nem mindig hatékony)
+B) Paraméteres (Hatékonyabb lehet a rajzolás szempontjából) 
+✅ C) Mindkettő (Igaz, mert az adott alkalmazástól függően mindkét mód használható)
+D) Egyik sem (Hamis)
+Helyes válasz: C (Mindkettő)
+
+7. Tetszőleges nézeti transzformáció leírható modelltranszformációkkal.
+✅A) Igaz (Helyes válasz)
+B) Hamis
+A nézeti transzformáció valójában egy speciális modelltranszformációként is felfogható, 
+mivel a nézet és kamera beállításai megfeleltethetők transzformációs mátrixokkal.
+
+8. Legyen S_1 és S_2 két skálázási mátrix, T_1 és T_2 egy-egy eltolási mátrix, F_x egy x tengely körüli forgatás mátrixa. Mely(ek) igaz(ak)?
+✅A) S_1 és S_2 szorzási sorrendje felcserélhető. (Igaz)
+A skálázási mátrixok kommutatívak, azaz felcserélhetők.
+B) T_1 és T_2 szorzási sorrendje felcserélhető. (Hamis) 
+Eltolási mátrixok szorzása nem feltétlenül kommutatív, azaz a sorrend számít.
+C) S_1 és T_1 szorzási sorrendje felcserélhető. (Hamis)
+A skálázás és az eltolás sorrendje számít, mert az eltolás vektorait a skálázás torzíthatja.
+D) F_x és S_1 szorzási sorrendje felcserélhető. (Hamis) 
+A forgatás és skálázás sorrendje befolyásolja a végeredményt, ezért nem felcserélhetők.
+Helyes válasz: A
+
+9. A nézeti transzformációk szokásos megadási modelljének esetében mely(ek) igaz(ak)?
+✅A) Az "up" vektor a kamera koordináta-rendszerének y tengelyével párhuzamos. (Igaz)
+Az "up" vektor az y tengely mentén mutat felfelé a legtöbb nézeti transzformációs modellben.
+B) A kamera pozícióját és a kamera által figyelt pontot tartalmazó egyenes párhuzamos a kamera koordináta-rendszerének x tengelyével. (Hamis)
+Ez nem feltétlenül igaz, mivel a kamera orientációja változtatható.
+✅C) Az "up" vektor a kamera koordináta-rendszerének x tengelyére merőleges. (Igaz)
+Az "up" vektor az x tengelyre merőleges, hiszen általában az y vagy z tengely mentén orientálódik.
+D) Az "up" vektor a kamera koordináta-rendszerének z tengelyére merőleges. (Hamis)
+Az "up" vektor jellemzően a nézet irányához igazodik, és nem feltétlenül merőleges a z tengelyre.
+Helyes válasz: A, C

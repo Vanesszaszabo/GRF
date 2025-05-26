@@ -4,7 +4,8 @@ Igaz / Hamis
 Helyes válasz -> Igaz
 
 
-2. Ha adott két pont, A és B koordinátái, és tekintjük az AB szakasz A-hoz közelebbi negyedelő pontját, akkor mik lesznek ennek a pontnak az A és B pontra vonatkoztatott baricentrikus koordinátái?
+2. Ha adott két pont, A és B koordinátái, és tekintjük az AB szakasz A-hoz közelebbi negyedelő pontját, 
+akkor mik lesznek ennek a pontnak az A és B pontra vonatkoztatott baricentrikus koordinátái?
 
 1. 1/4, 3/4 
 2. 3/4, 1/4
@@ -22,13 +23,15 @@ D. Egyik sem igaz.
 Helyes válasz -> B.
 
 
-4. A Cohen-Sutherland-féle egyenesvágó algoritmus esetén, ha az egyenes két végpontjához rendelt kód teljes egészében nulla, akkor az egyenes eldobható.
+4. A Cohen-Sutherland-féle egyenesvágó algoritmus esetén, ha az egyenes két végpontjához rendelt kód 
+teljes egészében nulla, akkor az egyenes eldobható.
 
 Igaz / Hamis 
 Helyes válasz -> Hamis
 
 
-5. Ha R egy 3×3-as mátrix, amely az origó körüli forgatást írja le, és T egy eltolási mátrix, akkor melyik mátrixszal kell balról szorozni a pontot, hogy először forgassunk, majd aztán eltoljunk?​
+5. Ha R egy 3×3-as mátrix, amely az origó körüli forgatást írja le, és T egy eltolási mátrix, 
+akkor melyik mátrixszal kell balról szorozni a pontot, hogy először forgassunk, majd aztán eltoljunk?​
 
 A. R × T
 B. T × R
@@ -59,7 +62,8 @@ D. Forgatás és eltolás.
 Helyes válasz -> B.
 
 
-9. A Cohen-Sutherland szakaszvágó algoritmusban egy input szakaszt legfeljebb hányszor kell vágni ahhoz, hogy biztosan eldönthető legyen, hogy melyik részét kell megrajzolni?
+9. A Cohen-Sutherland szakaszvágó algoritmusban egy input szakaszt legfeljebb hányszor kell vágni ahhoz,
+hogy biztosan eldönthető legyen, hogy melyik részét kell megrajzolni?
 
 A. 2
 B. 4
@@ -68,7 +72,8 @@ D. 16
 Helyes válasz -> B.
 
 
-10. A 3D->2D leképezéseknél az axonometrikus és a perspektív látványt létrehozó leképezések közül melyikre jellemző kimondottan az alacsonyabb számítási költség? 
+10. A 3D->2D leképezéseknél az axonometrikus és a perspektív látványt létrehozó leképezések közül 
+melyikre jellemző kimondottan az alacsonyabb számítási költség? 
 
 A. axonometrikus
 B. perspektív

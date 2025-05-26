@@ -1,0 +1,68 @@
+Számítógépes grafika, 1. elméleti ZH			Név:
+2025. április 2.					Neptun k:
+
+Maximális pontszám: 10 pont
+
+
+1. Ortogonális vetítés esetén egy egész egyenes leképezhető egyetlen pontra a képsíkon.
+
+Igaz / Hamis
+
+
+2. Ha adott két pont, A és B koordinátái, és tekintjük az AB szakasz A-hoz közelebbi negyedelő pontját, akkor mik lesznek ennek a pontnak az A és B pontra vonatkoztatott baricentrikus koordinátái?
+
+1. 1/4, 3/4 
+2. 3/4, 1/4
+3. cos(3/4), sin(1/4)
+4. sin(1/4), cos(3/4)
+
+
+3. A Bresenham-féle szakaszrajzoló algoritmus esetén az alábbi állítás igaz:
+
+A. A következő döntési paraméter kiszámításához nincs szükség az előző döntési paraméter értékére.
+B. A következő döntési paraméter kiszámításához nincs szükség a jelenleg megrajzolt pont koordinátáira.
+C. Mindkettő igaz.
+D. Egyik sem igaz.
+
+
+4. A Cohen-Sutherland-féle egyenesvágó algoritmus esetén, ha az egyenes két végpontjához rendelt kód teljes egészében nulla, akkor az egyenes eldobható.
+
+Igaz / Hamis
+
+
+5. Ha R egy 3×3-as mátrix, amely az origó körüli forgatást írja le, és T egy eltolási mátrix, akkor melyik mátrixszal kell balról szorozni a pontot, hogy először forgassunk, majd aztán eltoljunk?​
+
+A. R × T
+B. T × R
+C. Mindkettő használható, nem lesz különbség.
+D. Egyik sem.
+
+
+6. Hogyan írhatunk le egy pontot polárkoordinátákkal?​
+
+A. Az x koordinátával és egy sugárértékkel.
+B. Egy szöggel és egy sugárértékkel.
+C. Az y koordinátával és egy sugárértékkel.
+D. Csak a szögérték elegendő.
+
+
+8. Milyen transzformációkat használunk az ablakból nézetre (window to viewport) transzformáció során?
+
+A. Eltolás és projektív transzformáció.
+B. Eltolás és skálázás.
+C. Forgatás és skálázás.
+D. Forgatás és eltolás.
+
+
+9. A Cohen-Sutherland szakaszvágó algoritmusban egy input szakaszt legfeljebb hányszor kell vágni ahhoz, hogy biztosan eldönthető legyen, hogy melyik részét kell megrajzolni?
+
+A. 2
+B. 4
+C. 8
+D. 16
+
+
+10. A 3D->2D leképezéseknél az axonometrikus és a perspektív látványt létrehozó leképezések közül melyikre jellemző kimondottan az alacsonyabb számítási költség? 
+
+A. axonometrikus
+B. perspektív

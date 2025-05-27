@@ -1,0 +1,188 @@
+
+#define _USE_MATH_DEFINES
+
+#include <cmath>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
+
+// Globals.;
+static float R = 4.0; // Radius of circle.
+static int N = 20; // Number of vertices on circle.
+static float M = 4; // height of cylinder
+static float campozx = 7.0;
+
+void drawAntenna(float height)
+{
+	float antennaHeight = 2.0;
+	float antennaWidth = 2.0;
+
+	glColor3f(0.0, 0.0, 1.0);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+	glBegin(GL_LINES);
+	glVertex3f(0.0, 0.0, height);
+	glVertex3f(0.0, 0.0, height + antennaHeight);
+	glVertex3f(0.0 - antennaWidth, 0.0, height + antennaHeight);
+	glVertex3f(0.0 + antennaWidth, 0.0, height + antennaHeight);
+	glEnd();
+
+}
+
+void drawCylinder(float bottom, float top)
+{
+	float t = 0; // Angle parameter.
+	int i;
+
+	glColor3f(0.0, 1.0, 0.0);
+	glPolygonMode(GL_BACK, GL_LINE);
+
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	// egyik irányba háromszögek
+	for (i = 0; i < N; ++i)
+	{
+		glBegin(GL_TRIANGLES);
+
+		glVertex3f(R * cos(t), R * sin(t), bottom);
+		glVertex3f(R * cos(t), R * sin(t), top);
+		t += 2 * M_PI / N;
+		glVertex3f(R * cos(t), R * sin(t), bottom);
+		glEnd();
+	}
+
+	// másik irányba háromszögek
+	for (i = 0; i < N; ++i)
+	{
+		glBegin(GL_TRIANGLES);
+
+		glVertex3f(R * cos(t), R * sin(t), top);
+
+		t += 2 * M_PI / N;
+		glVertex3f(R * cos(t), R * sin(t), top);
+		glVertex3f(R * cos(t), R * sin(t), bottom);
+		glEnd();
+	}
+}
+
+void drawCircleAtHeight(float height)
+{
+	float t = 0; // Angle parameter.
+	int i;
+	int cc = 0;
+
+	for (i = 0; i < N; ++i)
+	{
+		if (cc)
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+			glColor3f(1.0, 0.0, 0.0);
+		}
+		else
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			glColor3f(0.0, 0.0, 0.0);
+		}
+		glBegin(GL_TRIANGLES);
+
+		glVertex3f(0.0, 0.0, height);
+		glVertex3f(R * cos(t), R * sin(t), height);
+		t += 2 * M_PI / N;
+		glVertex3f(R * cos(t), R * sin(t), height);
+		glEnd();
+
+		cc = (cc + 1) % 2;
+	}
+}
+
+// Drawing routine.
+void drawScene(void)
+{
+
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glLoadIdentity();
+
+	//gluLookAt(6.0, 6.0, 6.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	gluLookAt(campozx, 7.0, 7.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+
+	glRotatef(90, -1.0, 0.0, 0.0);
+
+	drawCircleAtHeight(0.0); // alsó kör
+	drawCircleAtHeight(M); // felső kör
+
+	drawCylinder(0.0, M); // palást
+
+	glPushMatrix();
+	drawAntenna(M); // antenna
+	glPopMatrix();
+
+	glFlush();
+}
+
+// Initialization routine.
+void setup(void)
+{
+	glClearColor(1.0, 1.0, 1.0, 0.0);
+}
+
+// OpenGL window reshape routine.
+void resize(int w, int h)
+{
+	glViewport(0, 0, w, h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	//glOrtho(0.0, 10.0, 0.0, 10.0, -1.0, 1.0);
+	glFrustum(-5, 5, -5, 5, 5, 30);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+
+// Keyboard input processing routine.
+void keyInput(unsigned char key, int x, int y)
+{
+	switch (key)
+	{
+	case 'a':
+		campozx--;
+		glutPostRedisplay();
+		break;
+	case 'd':
+		campozx++;
+		glutPostRedisplay();
+		break;
+	case 27:
+		exit(0);
+		break;
+	default:
+		break;
+	}
+}
+
+// Routine to output interaction instructions to the C++ window.
+
+
+// Main routine.
+int main(int argc, char** argv)
+{
+
+	glutInit(&argc, argv);
+
+	glutInitContextVersion(4, 3);
+	glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
+
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
+	glutInitWindowSize(500, 500);
+	glutInitWindowPosition(100, 100);
+	glutCreateWindow("circle.cpp");
+	glutDisplayFunc(drawScene);
+	glutReshapeFunc(resize);
+	glutKeyboardFunc(keyInput);
+
+	glewExperimental = GL_TRUE;
+	glewInit();
+
+	setup();
+
+	glutMainLoop();
+}

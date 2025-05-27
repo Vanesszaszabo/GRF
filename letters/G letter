@@ -24,17 +24,11 @@ void drawScene(void)
 
 
 	// Ív (a G "kerek" része, nyitott rész bal alsó oldalon)
-	glBegin(GL_TRIANGLE_STRIP);
-	for (int i = 0; i <= N; i++) {
-		angle = M_PI * (1.0 + i / N); // 180°-tól 360°-ig
-		glVertex3f(40 + cos(angle) * 30.0, 60 + sin(angle) * 30.0, 0.0); // Belső ív
-		glVertex3f(40 + cos(angle) * 40.0, 60 + sin(angle) * 40.0, 0.0); // Külső ív
-	}
-	glEnd();
+
 
 	glBegin(GL_TRIANGLE_STRIP);
 	for (int i = 0; i <= N; i++) {
-		angle = M_PI/2 * (1.0 + i / N); // 90°-tól
+		float angle = (2 * M_PI - (3 * M_PI / 2 * i) / N); // 0° → 270°, CW irányban
 		glVertex3f(40 + cos(angle) * 30.0, 60 + sin(angle) * 30.0, 0.0); // Belső ív
 		glVertex3f(40 + cos(angle) * 40.0, 60 + sin(angle) * 40.0, 0.0); // Külső ív
 	}
